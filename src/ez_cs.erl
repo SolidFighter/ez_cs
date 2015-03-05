@@ -23,13 +23,11 @@ init([]) ->
   {ok, Servers}.
 
 handle_call({register, Server}, _From, Servers) -> 
-  %%fvck NewServers = add_server(Servers, Server),
-  %%fvck {reply, ok, NewServers};
-  fvck;
+  NewServers = add_server(Servers, Server),
+  {reply, ok, NewServers};
 handle_call({unregister, Server}, _From, Servers) -> 
-  %%fvck NewServers = del_server(Servers, Server),
-  %%{reply, Reply, NewServers};
-  fvck;
+  NewServers = del_server(Servers, Server),
+  {reply, ok, NewServers};
 handle_call({get}, _From, Servers) -> 
   {reply, {ok, config, Servers}, Servers}.
 
@@ -40,6 +38,10 @@ code_change(_OldVsn, State, _Extra) -> {ok, State}.
 
 get_servers() ->
   [{0, [{"127.0.0.1", 2345}]}, {1, [{"192.168.1.109", 2346}]}, {2, [{"192.168.1.109", 2347}]}].
+add_server(Servers, Server) ->
+  Servers.
+del_server(Servers, Server) ->
+  Servers.
 
 %%client method
 register(Server) -> gen_server:call(?MODULE, {register, Server}).
