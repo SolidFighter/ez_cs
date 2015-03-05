@@ -1,0 +1,12 @@
+{application, ez_cs,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { ez_cs_app, []}},
+  {env, []}
+ ]}.
