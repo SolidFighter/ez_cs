@@ -12,7 +12,7 @@ make.
 
 ## Boot
 
-kvs:start().
+ez_cs:start().
 
 ## Erlang Version
 
